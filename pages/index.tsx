@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import useSound from "use-sound";
 
 const Home: NextPage = () => {
   const sounds = [
@@ -28,12 +29,7 @@ const Home: NextPage = () => {
       </form>
       <div className="py-5 flex flex-wrap gap-20 max-w-6xl mx-auto">
         {sounds.map((s) => (
-          <div
-            key={s}
-            className="bg-red-100 w-36 h-36 rounded-3xl items-center justify-center cursor-pointer shadow-2xl flex hover:bg-blue-100"
-          >
-            {s}
-          </div>
+          <Sound key={s} name={s} />
         ))}
       </div>
     </div>
@@ -41,3 +37,16 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+function Sound({ name }: any) {
+  const [play] = useSound(`/sounds/${name}.mp3`);
+
+  return (
+    <div
+      onClick={() => play()}
+      className="bg-red-100 w-36 h-36 rounded-3xl items-center justify-center cursor-pointer shadow-2xl flex hover:bg-blue-100"
+    >
+      {name}
+    </div>
+  );
+}
