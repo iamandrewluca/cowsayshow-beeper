@@ -4,22 +4,15 @@ import useSound from "use-sound";
 import mqtt from "mqtt";
 import { useEffect, useState } from "react";
 
+
+
 const Home: NextPage = () => {
-  const username = useField(process.env.NEXT_PUBLIC_MQTT_USER);
-  const password = useField(process.env.NEXT_PUBLIC_MQTT_PASS);
-  const host = useField(process.env.NEXT_PUBLIC_MQTT_HOST);
+
 
   function onSubmit(e: any) {
     e.preventDefault();
 
-    const client = mqtt.connect(host.value, {
-      username: username.value,
-      password: password.value,
-    });
 
-    // To be continued ...
-
-    client.end();
   }
 
   return (
@@ -37,15 +30,13 @@ const Home: NextPage = () => {
           type="text"
           placeholder="User"
           className="rounded"
-          {...username}
         />
         <input
           type="password"
           placeholder="Password"
           className="rounded"
-          {...password}
         />
-        <input type="text" placeholder="Host" className="rounded" {...host} />
+        <input type="text" placeholder="Host" className="rounded" />
         <input
           type="submit"
           value="Connect"
@@ -77,11 +68,33 @@ const sounds = [
 ];
 
 function Sound({ name }: any) {
+
   const [play] = useSound(`/sounds/${name}.mp3`);
+
+  const handleClick = async () => {
+    console.log(`Click! on ${name}`);
+
+    console.log(event.target);
+    await fetch(
+      '/api/trigger-sound',
+      {
+        body: JSON.stringify({
+          name: `${name}`
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST'
+      }
+    );
+
+
+    play();
+  };
 
   return (
     <div
-      onClick={() => play()}
+      onClick={handleClick}
       className="bg-red-100 w-36 h-36 rounded-3xl items-center justify-center cursor-pointer shadow-2xl flex hover:bg-blue-100"
     >
       {name}
