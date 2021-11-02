@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Running
+
+```bash
+NEXT_PUBLIC_MQTT_USER=username NEXT_PUBLIC_MQTT_PASS=password npm run dev
+```
+
 ## Getting Started
 
 First, run the development server:
