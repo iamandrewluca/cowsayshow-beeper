@@ -1,6 +1,6 @@
 export function Keyboard() {
   return (
-    <div className="grid gap-2 grid-cols-[repeat(30,30px)] grid-rows-[repeat(5,60px)] w-full bg-gray-100 p-2 overflow-scroll rounded">
+    <div className="grid gap-2 grid-cols-[repeat(30,30px)] grid-rows-[repeat(5,60px)] bg-gray-100 p-2 overflow-scroll rounded">
       <Key span="col-span-2">~</Key>
       <Key span="col-span-2">1</Key>
       <Key span="col-span-2">2</Key>

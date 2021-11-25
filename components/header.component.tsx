@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <header className="py-2 bg-white shadow-lg">
-      <Container className="max-w-6xl flex justify-between items-center">
+      <Container className="flex justify-between items-center">
         <div
           onClick={() => play({ id: "cow" })}
           className="text-6xl transform -rotate-6 hover:rotate-6"

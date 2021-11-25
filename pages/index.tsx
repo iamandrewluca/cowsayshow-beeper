@@ -18,13 +18,13 @@ const Home: NextPage = () => (
 
     <Header />
 
-    <Container className="py-10 flex flex-wrap justify-center gap-20">
-      {sounds.map((s) => (
-        <Sound key={s} name={s} />
+    <Container className="grid gap-8 grid-cols-4 py-8 bg-gray-100 my-8 rounded-3xl shadow">
+      {sounds.map((s, index) => (
+        <Sound key={index} sound={s} colour={colours[index]} />
       ))}
     </Container>
 
-    <Container className="py-10">
+    <Container className="py-8">
       <Keyboard />
     </Container>
   </>
@@ -33,27 +33,59 @@ const Home: NextPage = () => (
 export default Home;
 
 const sounds = [
-  "badumtss",
-  "coin",
-  "applause",
-  "cricket",
-  "drumroll",
-  "gong",
-  "sadtrombone",
-  "cowsay",
-  "booing",
-  "cheering",
+  { shortcut: "1", file: "badumtss", title: "🥁" },
+  { shortcut: "2", file: "coin", title: "🪙" },
+  { shortcut: "3", file: "applause", title: "👏" },
+  { shortcut: "4", file: "cricket", title: "🦗" },
+  { shortcut: "Q", file: "drumroll", title: "🥁🥁" },
+  { shortcut: "W", file: "gong", title: "📣" },
+  { shortcut: "E", file: "sadtrombone", title: "🎺" },
+  { shortcut: "R", file: "cowsay", title: "🐮" },
+  { shortcut: "A", file: "booing", title: "👻" },
+  { shortcut: "S", file: "cheering", title: "🎉" },
+  { shortcut: "D", file: null, title: "🎁" },
+  { shortcut: "F", file: null, title: "🎁" },
+  { shortcut: "Z", file: null, title: "🎁" },
+  { shortcut: "X", file: null, title: "🎁" },
+  { shortcut: "C", file: null, title: "🎁" },
+  { shortcut: "V", file: null, title: "🎁" },
 ];
 
-function Sound({ name }: any) {
-  const [play] = useSound(`/sounds/${name}.mp3`);
+const colours = [
+  "bg-red-400",
+  "bg-green-400",
+  "bg-blue-400",
+  "bg-yellow-400",
+  "bg-red-400",
+  "bg-green-400",
+  "bg-blue-400",
+  "bg-yellow-400",
+  "bg-red-400",
+  "bg-green-400",
+  "bg-blue-400",
+  "bg-yellow-400",
+  "bg-red-400",
+  "bg-green-400",
+  "bg-blue-400",
+  "bg-yellow-400",
+];
+
+function Sound({ sound, colour }: any) {
+  const [play] = useSound(`/sounds/${sound.file}.mp3`);
 
   return (
     <div
       onClick={() => play()}
-      className="bg-red-100 w-36 h-36 rounded-3xl items-center justify-center cursor-pointer shadow-2xl flex hover:bg-blue-100"
+      className={`aspect-w-1 aspect-h-1 cursor-pointer rounded-3xl shadow ${colour}`}
     >
-      {name}
+      <span className="absolute inset-0 overflow-hidden">
+        <div className="absolute m-1 left-0 top-0 rounded-tl-3xl rounded-br-xl font-bold w-9 h-9 bg-gray-200 text-gray-500 shadow-lg flex items-end justify-end font-mono pr-3 pb-1">
+          {sound.shortcut}
+        </div>
+        <div className="absolute bottom-0 right-0 p-6 text-5xl">
+          {sound.title}
+        </div>
+      </span>
     </div>
   );
 }

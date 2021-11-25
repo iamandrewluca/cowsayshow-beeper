@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
 export function LoginDialog({ isOpen, setIsOpen }: any) {
-  const username = useField(process.env.NODE_ENV);
+  const username = useField(process.env.NEXT_PUBLIC_MQTT_USER);
   const password = useField(process.env.NEXT_PUBLIC_MQTT_PASS);
   const host = useField(process.env.NEXT_PUBLIC_MQTT_HOST);
 
