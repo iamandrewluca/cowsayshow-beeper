@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import useSound from "use-sound";
+import { Container } from "./container.component";
 import { LoginDialog } from "./login-dialog.component";
 
 export function Header() {
@@ -12,7 +13,7 @@ export function Header() {
 
   return (
     <header className="py-2 bg-white shadow-lg">
-      <div className="container mx-auto max-w-6xl flex justify-between items-center">
+      <Container className="max-w-6xl flex justify-between items-center">
         <div
           onClick={() => play({ id: "cow" })}
           className="text-6xl transform -rotate-6 hover:rotate-6"
@@ -27,7 +28,7 @@ export function Header() {
         >
           Login
         </button>
-      </div>
+      </Container>
 
       <LoginDialog isOpen={isOpen} setIsOpen={setIsOpen} />
     </header>

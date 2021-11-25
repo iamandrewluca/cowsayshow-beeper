@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import useSound from "use-sound";
+import { Container } from "../components/container.component";
 import { Header } from "../components/header.component";
 import { Keyboard } from "../components/keyboard.component";
 
 const Home: NextPage = () => (
-  <div>
+  <>
     <Head>
       <title>Cowsay Show Bepper</title>
       <meta
@@ -17,16 +18,16 @@ const Home: NextPage = () => (
 
     <Header />
 
-    <section className="container mx-auto max-w-6xl py-10 flex flex-wrap justify-center gap-20">
+    <Container className="py-10 flex flex-wrap justify-center gap-20">
       {sounds.map((s) => (
         <Sound key={s} name={s} />
       ))}
-    </section>
+    </Container>
 
-    <section className="container mx-auto max-w-6xl py-10">
+    <Container className="py-10">
       <Keyboard />
-    </section>
-  </div>
+    </Container>
+  </>
 );
 
 export default Home;
