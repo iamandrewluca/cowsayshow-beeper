@@ -33,7 +33,8 @@
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx,vue,css,json,graphql,html,md}": "npx prettier --write"
 	},
-	"engines": {
+	"//": "Vercel still uses node@14 runtime, uncomment when node@16 is supported",
+	"//engines": {
 		"node": ">=16.0.0",
 		"npm": ">=8.0.0"
 	}
