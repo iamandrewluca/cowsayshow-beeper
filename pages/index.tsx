@@ -2,11 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
 import useSound from "use-sound";
+import { AuthProvider } from "../components/auth-provider.component";
 import { Container } from "../components/container.component";
 import { Header } from "../components/header.component";
 
 const Home: NextPage = () => (
-	<>
+	<AuthProvider>
 		<Head>
 			<title>Cowsay Show Bepper</title>
 			<meta
@@ -49,7 +50,7 @@ const Home: NextPage = () => (
 				))}
 			</div>
 		</Container>
-	</>
+	</AuthProvider>
 );
 
 export default Home;
@@ -57,7 +58,7 @@ export default Home;
 const backgroundImage = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`;
 
 function Sound({ sound, colour, code }: any) {
-	const [play] = useSound(`/sounds/${sound.file}.mp3`);
+	const [play] = useSound(sound.file);
 
 	useEffect(() => {
 		function listener(event: KeyboardEvent) {
@@ -98,112 +99,112 @@ const sounds = [
 		shortcut: "1",
 		code: "Digit1",
 		bg: "bg-red-400",
-		file: "badumtss",
+		file: "/sounds/badumtss.mp3",
 		title: "🥁",
 	},
 	{
 		shortcut: "2",
 		code: "Digit2",
 		bg: "bg-green-400",
-		file: "coin",
+		file: "/sounds/coin.mp3",
 		title: "🪙",
 	},
 	{
 		shortcut: "3",
 		code: "Digit3",
 		bg: "bg-blue-400",
-		file: "applause",
+		file: "/sounds/applause.mp3",
 		title: "👏",
 	},
 	{
 		shortcut: "4",
 		code: "Digit4",
 		bg: "bg-yellow-400",
-		file: "cricket",
+		file: "/sounds/cricket.mp3",
 		title: "🦗",
 	},
 	{
 		shortcut: "Q",
 		code: "KeyQ",
 		bg: "bg-red-400",
-		file: "drumroll",
+		file: "/sounds/drumroll.mp3",
 		title: "🥁🥁",
 	},
 	{
 		shortcut: "W",
 		code: "KeyW",
 		bg: "bg-green-400",
-		file: "gong",
+		file: "/sounds/gong.mp3",
 		title: "📣",
 	},
 	{
 		shortcut: "E",
 		code: "KeyE",
 		bg: "bg-blue-400",
-		file: "sadtrombone",
+		file: "/sounds/sadtrombone.mp3",
 		title: "🎺",
 	},
 	{
 		shortcut: "R",
 		code: "KeyR",
 		bg: "bg-yellow-400",
-		file: "cowsay",
+		file: "/sounds/cowsay.mp3",
 		title: "🐮",
 	},
 	{
 		shortcut: "A",
 		code: "KeyA",
 		bg: "bg-red-400",
-		file: "booing",
+		file: "/sounds/booing.mp3",
 		title: "👻",
 	},
 	{
 		shortcut: "S",
 		code: "KeyS",
 		bg: "bg-green-400",
-		file: "cheering",
+		file: "/sounds/cheering.mp3",
 		title: "🎉",
 	},
 	{
 		shortcut: "D",
 		code: "KeyD",
 		bg: "bg-blue-400",
-		file: "cowsay",
+		file: "/sounds/cowsay.mp3",
 		title: "🎁",
 	},
 	{
 		shortcut: "F",
 		code: "KeyF",
 		bg: "bg-yellow-400",
-		file: "cowsay",
+		file: "/sounds/cowsay.mp3",
 		title: "🎁",
 	},
 	{
 		shortcut: "Z",
 		code: "KeyZ",
 		bg: "bg-red-400",
-		file: "cowsay",
+		file: "/sounds/cowsay.mp3",
 		title: "🎁",
 	},
 	{
 		shortcut: "X",
 		code: "KeyX",
 		bg: "bg-green-400",
-		file: "cowsay",
+		file: "/sounds/cowsay.mp3",
 		title: "🎁",
 	},
 	{
 		shortcut: "C",
 		code: "KeyC",
 		bg: "bg-blue-400",
-		file: "cowsay",
+		file: "/sounds/cowsay.mp3",
 		title: "🎁",
 	},
 	{
 		shortcut: "V",
 		code: "KeyV",
 		bg: "bg-yellow-400",
-		file: "cowsay",
+		file: "/sounds/cowsay.mp3",
 		title: "🎁",
 	},
 ];
