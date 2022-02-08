@@ -18,7 +18,31 @@ const Home: NextPage = () => (
 
 		<Header />
 
-		<Container className="my-4">
+		<Container className="text-right">
+			<a
+				href="https://github.com/iamandrewluca/cowsayshow-beeper"
+				className="py-2 text-xs underline inline-block"
+				target="_blank"
+				rel="noreferrer"
+			>
+				<span>Made with</span>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					className="h-4 w-4 inline text-red-600 mx-1"
+					viewBox="0 0 20 20"
+					fill="currentColor"
+				>
+					<path
+						fillRule="evenodd"
+						d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+						clipRule="evenodd"
+					/>
+				</svg>
+				<span>by community</span>
+			</a>
+		</Container>
+
+		<Container className="mb-4">
 			<div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
 				{sounds.map((s, index) => (
 					<Sound key={index} sound={s} colour={s.bg} code={s.code} />
